@@ -1,11 +1,8 @@
 ---
 # tasks file for pihole
 #
-- name: debuging
-  debug:
-    msg: "{{ pi_pwd }}"
 
-- name: Testujeme PING
+- name: PING
   ping:
 
 - name: Create Pi-hole group    
