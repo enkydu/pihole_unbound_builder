@@ -10,6 +10,7 @@
     name: pihole
     state: present
   become: yes
+  tags: pihole
 
 - name: Create Pi-hole user
   user:
@@ -18,6 +19,7 @@
     groups: pihole,www-data
     uid: 999
   become: yes  
+  tags: pihole
 
 - name: Create /etc/pihole directory
   file:
@@ -26,19 +28,23 @@
     owner: pihole
     group: pihole  
   become: yes  
+  tags: pihole
 
 - name: Copy Pi-hole setupVars.conf into /etc/pihole
   template:
     src: setupVars.conf.j2
     dest: /etc/pihole/setupVars.conf
   become: yes  
+  tags: pihole
 
 - name: Download Pi-hole installer
   get_url: 
     url: https://install.pi-hole.net
     dest: /tmp/install-pihole.sh
     mode: 0740
+    tags: pihole
 
 - name: Install Pi-hole
   shell: "/tmp/install-pihole.sh  --unattended"  
   become: yes
+  tags: pihole
