@@ -1,0 +1,8 @@
+---
+- name: Pokus PING
+  hosts: 
+    - raspberrypi
+
+  roles: 
+    - pihole
+    - unbound

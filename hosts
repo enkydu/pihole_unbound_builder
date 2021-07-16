@@ -1,0 +1,1 @@
+raspberrypi ansible_host="{{ host_ip }}" ansible_user=pi ansible_password="{{ pi_pwd }}"

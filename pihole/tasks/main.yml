@@ -1,0 +1,47 @@
+---
+# tasks file for pihole
+#
+- name: debuging
+  debug:
+    msg: "{{ pi_pwd }}"
+
+- name: Testujeme PING
+  ping:
+
+- name: Create Pi-hole group    
+  group:
+    name: pihole
+    state: present
+  become: yes
+
+- name: Create Pi-hole user
+  user:
+    name: pihole
+    group: pihole  
+    groups: pihole,www-data
+    uid: 999
+  become: yes  
+
+- name: Create /etc/pihole directory
+  file:
+    path: /etc/pihole
+    state: directory
+    owner: pihole
+    group: pihole  
+  become: yes  
+
+- name: Copy Pi-hole setupVars.conf into /etc/pihole
+  template:
+    src: setupVars.conf.j2
+    dest: /etc/pihole/setupVars.conf
+  become: yes  
+
+- name: Download Pi-hole installer
+  get_url: 
+    url: https://install.pi-hole.net
+    dest: /tmp/install-pihole.sh
+    mode: 0740
+
+- name: Install Pi-hole
+  shell: "/tmp/install-pihole.sh  --unattended"  
+  become: yes
