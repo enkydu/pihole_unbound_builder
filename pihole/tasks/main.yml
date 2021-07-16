@@ -42,7 +42,7 @@
     url: https://install.pi-hole.net
     dest: /tmp/install-pihole.sh
     mode: 0740
-    tags: pihole
+  tags: pihole
 
 - name: Install Pi-hole
   shell: "/tmp/install-pihole.sh  --unattended"  
