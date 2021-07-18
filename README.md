@@ -8,3 +8,8 @@ This script will install Pi-hole and Unbound on your RaspberryPi. You have to pr
 **pi_pwd** - password for your "pi" user on RaspberryPi. If you are using different user, change username in hosts file
 
 These variables are set via .passwds.yml ansible-vault file with ansible-vault password provided via file .vault_pass. 
+
+***.passwds.yml template***
+
+    host_ip: <xxx.xxx.xxx.xxx>
+    pi_pwd: <your_password>
