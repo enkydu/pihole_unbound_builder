@@ -1,6 +1,6 @@
 # Pi-hole & Unbound Ansible Builder
 
-Ansible script for initial installation and configuration of Pi-hole and Unbound on Raspberry Pi. 
+Ansible playbook for initial installation and configuration of Pi-hole and Unbound on Raspberry Pi. 
 
 This script will install Pi-hole and Unbound on your RaspberryPi. You have to provide variables for this script:
 
