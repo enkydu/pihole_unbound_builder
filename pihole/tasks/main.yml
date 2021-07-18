@@ -2,9 +2,6 @@
 # tasks file for pihole
 #
 
-- name: PING
-  ping:
-
 - name: Create Pi-hole group    
   group:
     name: pihole
